@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>League Feedback System - Manual</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+    <style>
+        .table {
+            table-layout: fixed;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body style="background-color: #EEE;">
+    <div class="container" style="margin-top: 30px; margin-bottom: 30px; padding-bottom: 10px; background-color: #FFF;">
+        <h1>The League Feedback System - Manual</h1>
+        <span class="small pull-left" style="padding-right: 10px;">Developed By Matthew Smith and Rouya Yan - 2016</span>
+        <hr>
+       
+        <p>     Thank you for choosing the League Feedback System, also known as the Constructive Feedback System! This document will outline how to effectively use the platform, and perform maintenance on it.</p>
+
+        <div align="center">
+            <h2>Installation</h2>
+        </div>
+        <p>The League Feedback System has already been installed at the League by yours truly, and as such, most people won't need this section. This section is, however, for you if the webserver or app somehow got deleted, in which case, your probably panicking, so I'll get right to it...</p>
+        <h3> Android App</h3>
+            <p>The Android rating app may be reinstalled at any point onto a device that is running any version of Android 17 and up. Please note that the device will need to be connected to Wi-Fi, or mobile data for any ratings to be submitted. <b>Make sure to look below at the Customization - Android section to change the what URL the data is submitted and read from!</b></p>
+            <a href="https://github.com/matthew86707/RatingApp"> Link to Android App </a>
+
+        <h3>Web Server</h3>
+
+        <p>The Web Server contains all the php and html files that do most of the dirty work to keep this system in tip-top shape. You can download them below. Drag the folder onto your server, and make sure the landing page is set to 'test.php'. <b>Make sure to look at the Customization - Web Server section below to hook up the php with your calendar spreadsheet, and database!</b></p>
+
+        <a href="https://www.dropbox.com/sh/eyo7g6tixpibtow/AADvwxX22oIB-WdJU4JTrW7Pa?dl=0"> Link to Web Server Files </a>
+
+        <h3>Database</h3>
+
+        <p>Sorry folks, no easy to download files here, but come'on, setting up a table in SQL isn't that hard...Follow this list of columns and put them into a new database</p>
+        <ul>
+            <li>classID</li>
+            <li>teacherName</li>
+            <li>funRating</li>
+            <li>informationRating</li>
+            
+            </ul>
+
+        <p>Now you should be good to go as far as the database is speaking. </p>
+
+        <div align="center">
+            <h2>Customization</h2>
+            </div>
+
+            Want to change the colors, or look and feel of the site? Go edit the code yourself...sorry. What this section is really about is changing important things like the teachers spreadsheet, or database location. All jokes aside, If you really want to customize the website look, Its not too hard, considering everything is made using <a href="http://getbootstrap.com/"> Bootstrap. </a>
+
+        <h3>Android App</h3>
+        <ul>
+            <li>Look under 'DataBaseFunctions.java' to change the web address that ratings get Posted too</li>
+            <li>Look under 'GetTeachers.java' to change the web address that teachers are gotten from</li>
+            </ul>
+        <h3>Web Server</h3>
+        <ul>
+            <li>Look under 'connection.php' to change where the database is</li>
+            <li>Look under 'getTeachers.php' to change the web address to where the class schedule spreadsheet is located <b>Note : The link must be to a CSV google docs spreadsheet. To get the link from your spreadsheet, see below:</b></li>
+        </ul>
+        <b>File -> Publish To Web -> </b> <br />
+        <div align="center">
+            <img src="Manual1.PNG" alt="CSV Inst" style="align-content:center" align="middle">
+            </div>
+
+            <h3>Database</h3>
+            Umm...I'm not really sure how you would want to customize a database, but knock yourself out! It doesn't matter what else you have in your database as long as the columns listed above (under Installation - Database) are present, you could store all the data you want in the rest of the table. <b> Just Beware! The delete data function in The Feedback System TRUNCATES the entire table, so all data in that table will be lost!</b>
+        <div align="center">
+            <h2>Clearing Data</h2>
+            </div>
+            You need to edit the php for this one, and with good reason. We don't want any old joe-shmow deleting all your ratings now would we? Navigate, on your Web Server, to 'deleteData.php', then open it up. Un-comment the SQL query, (It's the one line that is commented out). Last step is to load [yourUrlHere].deleteData.php in any web browser. Once refreshed, all data will be deleted! <b>Make sure to re-comment the SQL query as to prevent deleteData.php from being an active trip-mine!</b>
+
+        <div align="center">
+            <h2>Libraries Used</h2>
+            </div>
+            <ul>
+                <li>Bootstrap</li>
+                <li>Chart.js</li>
+                <li>Volley</li>
+                <li>ShowStorm.js (See you during holidays!)</li>
+
+            </ul>
+            <div align="center">
+                <h2>Thanks for Using The League Feedback System!</h2>
+                Developed By : Matthew Smith, Rouya Yan, and help from Site Mao! <br />
+                For technical help, contact matt86707@gmail.com with the subject, "League Feedback."
+            </div>
+            <hr>
+            <div class="pull-right"><i>Special Thanks To <a href="https://github.com/bombsite">Site Mao!</a></i></div>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>
